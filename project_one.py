@@ -1,3 +1,4 @@
+
 def evaluate (board):
     #show the status of the game, _ = game not finished, ! = draw, x = player with xs has won, o = player with os has won
     if 'xxx' in board:
@@ -8,6 +9,7 @@ def evaluate (board):
         return '!'
     else:
         return'-'
+    
     
 def move (board, position_number, mark):
     # returns the game board with given mark on given position
@@ -43,23 +45,21 @@ def pc_move(board):
         if computer_inp_str == '-':
             board = move(board, computer_inp, 'o')
             break
-        return board
+    return board
     
-
 board = '--------------------'
 
 while '-' in board:
-        board = (player_move(board))
-        print(board)
-        board = (pc_move(board))
-        print(board)
-        print(evaluate(board))
-        if evaluate(board) == 'x':
-            print('You won!')
-            break
-        elif evaluate(board) == 'o':
-            print('You lost!')
-            break
-        elif evaluate(board) == '!':
-            print('Draw! Start a new game!')
-            break
+    board = (player_move(board))
+    board = (pc_move(board))
+    print(board)
+    print(evaluate(board))
+    if evaluate(board) == 'x':
+        print('You won!')
+        break
+    elif evaluate(board) == 'o':
+        print('You lost!')
+        break
+    elif evaluate(board) == '!':
+        print('Draw! Start a new game!')
+        break
