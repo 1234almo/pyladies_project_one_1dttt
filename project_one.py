@@ -41,8 +41,9 @@ def pc_move(board):
     from random import randrange
     while True:
         computer_inp = (randrange(0,19))
-        computer_inp_str = board[computer_inp]
-        if computer_inp_str == '-':
+        if board[computer_inp] in ('x', 'o'):
+            computer_inp = (randrange(0,19))
+        if board[computer_inp] == '-':
             board = move(board, computer_inp, 'o')
             break
     return board
